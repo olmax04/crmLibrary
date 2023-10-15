@@ -1,6 +1,6 @@
 import os
-from database import *
 import requests
+from .database import *
 
 
 class AmoCrm:

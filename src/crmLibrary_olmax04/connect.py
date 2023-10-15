@@ -1,4 +1,4 @@
-from amoCrm import AmoCrm
+from .amoCrm import AmoCrm
 
 
 class Connect:

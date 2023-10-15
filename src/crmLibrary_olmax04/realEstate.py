@@ -1,6 +1,6 @@
-from rieltorModule import RieltorModule
-from utils.realEstate import *
-from types.realEstate import RealEstateObject
+from .rieltorModule import RieltorModule
+from .utils.realEstate import *
+from .types.realEstate import RealEstateObject
 
 
 class RealEstate:

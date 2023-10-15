@@ -1,4 +1,4 @@
-from src.crmLibrary_olmax04.rieltorModule import RieltorModule
+from .rieltorModule import RieltorModule
 
 
 class Preload:
