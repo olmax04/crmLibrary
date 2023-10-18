@@ -67,7 +67,7 @@ class RealEstateObject:
     def getOwner(self):
         return self.owner
 
-    def setOwner(self, owner: str):
+    def setOwner(self, owner: dict):
         self.owner = owner
 
     def getPrice(self):
@@ -115,7 +115,7 @@ class RealEstateObject:
     def getParking(self):
         return self.parking
 
-    def setParking(self, parking: str):
+    def setParking(self, parking: [str, None]):
         self.parking = parking
 
     def getDeposit(self):
