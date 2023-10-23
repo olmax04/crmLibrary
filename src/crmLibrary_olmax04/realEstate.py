@@ -41,7 +41,6 @@ class RealEstate:
                 parking(realEstate.parking),
                 area(realEstate.area),
                 address(realEstate.address),
-                second_czynsz(realEstate.communal),
                 animals(realEstate.parking),
                 children()
             ]

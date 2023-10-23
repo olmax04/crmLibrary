@@ -54,16 +54,18 @@ def link(value: str):
 
 
 def kaucja(value: int, price: int, czynsz: int):
-    if value == 0:
+    if value == 0 or value is None:
         return {
             "param_id": 447419,
+            "param_alias": "kaucja",
             "param_type": 2,
             "values": [
                 {
-                    "value": price + czynsz
+                    "value": price
                 }
             ]
-        }
+        },
+
     else:
         return {
             "param_id": 447419,
@@ -91,19 +93,25 @@ def second_czynsz(value: int):
 
 def czynsz(value: int):
     return {
-        "param_id": 447420,
+        "param_id": 447421,
+        "param_alias": "administracyjny",
         "param_type": 2,
         "values": [
             {
                 "value": value
             }
         ]
-    }
+    },
 
 
 def description(kaucja: int = 0, rooms: int = 0, bedrooms: int = 0):
+    if rooms == 1 or rooms < 1:
+        bedrooms = 1
+        rooms = 1
+    else:
+        bedrooms -= 1
     return (
-        f"Кауция: {kaucja}<br>Кол-во комнат: {rooms}<br>Кол-во спален: {bedrooms - 1}<br>Кондиционер:<br>Животные: Возможно<br>Паркинг: Возможно")
+        f"Кауция: {kaucja}<br>Кол-во комнат: {rooms}<br>Кол-во спален: {bedrooms}<br>Кондиционер:<br>Животные: Возможно<br>Паркинг: Возможно")
 
 
 def description_inner(value: str):
@@ -334,16 +342,28 @@ def parking(value: str):
 
 
 def rooms(value: int):
-    return {
-        "param_id": 425643,
-        "param_alias": "BedroomsCount",
-        "param_type": 2,
-        "values": [
-            {
-                "value": value - 1
-            }
-        ]
-    }
+    if value <= 1:
+        return {
+            "param_id": 425643,
+            "param_alias": "BedroomsCount",
+            "param_type": 2,
+            "values": [
+                {
+                    "value": value
+                }
+            ]
+        }
+    else:
+        return {
+            "param_id": 425643,
+            "param_alias": "BedroomsCount",
+            "param_type": 2,
+            "values": [
+                {
+                    "value": value - 1
+                }
+            ]
+        }
 
 
 def bedrooms(value: int):
