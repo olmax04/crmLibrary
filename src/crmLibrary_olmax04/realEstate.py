@@ -1,3 +1,5 @@
+import json
+
 from .rieltorModule import RieltorModule
 from .utils.realEstate import *
 from .types.realEstate import RealEstateObject
@@ -11,6 +13,23 @@ class RealEstate:
         data = dict()
         data['method'] = "POST"
         data['url'] = "objects"
+        params = [link(realEstate.url),
+                  state("Poland"),
+                  representative(realEstate.ownerType),
+                  bedrooms(realEstate.bedroomsCount),
+                  rooms(realEstate.roomsCount),
+                  deposit(realEstate.deposit, realEstate.price),
+                  communal(realEstate.communal),
+                  city(realEstate.address),
+                  floor(realEstate.currentFloor),
+                  floorsCount(realEstate.floorCount),
+                  district(realEstate.address),
+                  parking(realEstate.parking),
+                  area(realEstate.area),
+                  address(realEstate.address),
+                  animals(realEstate.parking),
+                  children()]
+        print(json.dumps(params, ensure_ascii=False, indent=2))
         data['json'] = {
             "cluster_id": 2088,
             "name": Name.get_name(realEstate.address),
@@ -25,25 +44,8 @@ class RealEstate:
             "currency": "PLN",
             "export_website": False,
             "description_public": description(realEstate.deposit, realEstate.roomsCount, realEstate.bedroomsCount),
-            "description_inner": description_inner(realEstate.description),
-            "params": [
-                link(realEstate.url),
-                state("Poland"),
-                representative(realEstate.ownerType),
-                bedrooms(realEstate.bedroomsCount),
-                rooms(realEstate.roomsCount),
-                kaucja(realEstate.deposit, realEstate.price, realEstate.communal),
-                czynsz(realEstate.communal),
-                city(realEstate.address),
-                floor(realEstate.currentFloor),
-                floors_count(realEstate.floorCount),
-                district(realEstate.address),
-                parking(realEstate.parking),
-                area(realEstate.area),
-                address(realEstate.address),
-                animals(realEstate.parking),
-                children()
-            ]
+            "description_inner": descriptionInner(realEstate.description),
+            "params": params
         }
         return data
 

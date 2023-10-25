@@ -6,17 +6,17 @@ class RealEstateObject:
         self.address: str = None
         self.ownerType: str = None
         self.owner: dict = None
-        self.price: int = None
+        self.price: int = 0
         self.description: str = None
-        self.currentFloor: int = None
-        self.floorCount: int = None
-        self.roomsCount: int = None
-        self.bedroomsCount: int = None
-        self.area: int = None
+        self.currentFloor: int = 0
+        self.floorCount: int = 0
+        self.roomsCount: int = 0
+        self.bedroomsCount: int = 0
+        self.area: int = 0
         self.parking: str = None
         self.animals: str = None
-        self.deposit: int = None
-        self.communal: int = None
+        self.deposit: int = 0
+        self.communal: int = 0
 
     def __str__(self):
         return (f"RealEstate[url: {self.url}]\n"

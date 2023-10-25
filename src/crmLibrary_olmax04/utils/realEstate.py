@@ -53,7 +53,7 @@ def link(value: str):
     }
 
 
-def kaucja(value: int, price: int, czynsz: int):
+def deposit(value: int, price: int):
     if value == 0 or value is None:
         return {
             "param_id": 447419,
@@ -64,8 +64,7 @@ def kaucja(value: int, price: int, czynsz: int):
                     "value": price
                 }
             ]
-        },
-
+        }
     else:
         return {
             "param_id": 447419,
@@ -78,7 +77,10 @@ def kaucja(value: int, price: int, czynsz: int):
         }
 
 
-def second_czynsz(value: int):
+
+
+
+def communal(value: int):
     return {
         "param_id": 447421,
         "param_alias": "administracyjny",
@@ -91,30 +93,17 @@ def second_czynsz(value: int):
     }
 
 
-def czynsz(value: int):
-    return {
-        "param_id": 447421,
-        "param_alias": "administracyjny",
-        "param_type": 2,
-        "values": [
-            {
-                "value": value
-            }
-        ]
-    },
-
-
-def description(kaucja: int = 0, rooms: int = 0, bedrooms: int = 0):
+def description(deposit: int, rooms: int, bedrooms: int):
     if rooms == 1 or rooms < 1:
         bedrooms = 1
         rooms = 1
     else:
         bedrooms -= 1
     return (
-        f"Кауция: {kaucja}<br>Кол-во комнат: {rooms}<br>Кол-во спален: {bedrooms}<br>Кондиционер:<br>Животные: Возможно<br>Паркинг: Возможно")
+        f"Кауция: {deposit}<br>Кол-во комнат: {rooms}<br>Кол-во спален: {bedrooms}<br>Кондиционер:<br>Животные: Возможно<br>Паркинг: Возможно")
 
 
-def description_inner(value: str):
+def descriptionInner(value: str):
     edited_value = value
     target = ['garaż', 'garaz', 'miejsce postojowe', 'miejsce parkingowe', 'parking', 'komorka',
               'komórka lokatorska',
@@ -288,7 +277,7 @@ def floor(value: int):
     }
 
 
-def floors_count(value: int):
+def floorsCount(value: int):
     return {
         "param_id": 425519,
         "param_type": 2,
