@@ -29,7 +29,7 @@ class RealEstate:
                   address(realEstate.address),
                   animals(realEstate.parking),
                   children()]
-        print(json.dumps(params, ensure_ascii=False, indent=2))
+        # print(json.dumps(params, ensure_ascii=False, indent=2))
         data['json'] = {
             "cluster_id": 2088,
             "name": Name.get_name(realEstate.address),
