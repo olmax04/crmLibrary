@@ -44,6 +44,6 @@ python -m build
 ### Upload new version using username and token 
 >Remember to change version in ./pyproject.toml
 ```shell
-python3 -m twine upload --repository testpypi dist/*
+py -m twine upload --repository testpypi dist/*
 ```
 
